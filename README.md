@@ -55,17 +55,18 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python -m backend.main
-
+```
 2. Frontend Setup (React)
-
+```bash
 cd frontend
 npm install
 npm run dev  # or npm start
-
+```
 3. Ollama Setup (local LLM)
+```bash
 ollama serve  # Start Ollama server
 ollama run llama3  # Make sure model is downloaded and working
-
+```
 Sample Dataset
 You can test the app using your own .csv file or a synthetic one.
 Make sure your file is under 100 MB (GitHub limit is enforced)
