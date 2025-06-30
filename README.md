@@ -56,34 +56,37 @@ source venv/bin/activate
 pip install -r requirements.txt
 python -m backend.main
 ```
-2. Frontend Setup (React)
+
+### 2. Frontend Setup (React)
+
 ```bash
 cd frontend
 npm install
 npm run dev  # or npm start
 ```
-3. Ollama Setup (local LLM)
+
+### 3. Ollama Setup (local LLM)
+
+To run the app locally with LLM support, you'll need [Ollama](https://ollama.com/), a tool for running large language models locally.
+
+#### Installation
+
+Follow installation instructions for your platform from https://ollama.com/download
+
+#### Start Ollama Server
+
 ```bash
-ollama serve  # Start Ollama server
-ollama run llama3  # Make sure model is downloaded and working
+ollama serve  # Starts the Ollama server in background
 ```
-Sample Dataset
-You can test the app using your own .csv file or a synthetic one.
-Make sure your file is under 100 MB (GitHub limit is enforced)
 
-.gitignore Highlights
+#### Pull and Run Model
 
-The repo ignores:
-	•	All .csv files
-	•	Upload folders
-	•	node_modules/
-	•	Python caches and .env
+You can use `llama3` or any other supported model:
 
-This prevents large or sensitive files from being committed.
-
-Future Enhancements
-	•	Support for multiple model types (e.g., GPT-4, Mixtral)
-	•	More intelligent suggestions & visual summaries
-	•	Exportable PDF/Markdown reports
-	•	Integration with SQL and other data sources
+```bash
+ollama run llama3
 ```
+
+This will download the model if not already present and verify it's working.
+
+Make sure Ollama is running at `http://localhost:11434` which is the default expected by the backend.
