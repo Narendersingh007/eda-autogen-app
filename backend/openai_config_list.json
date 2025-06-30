@@ -1,0 +1,8 @@
+[
+	{
+		"model": "llama3",
+		"api_base": "http://localhost:11434/v1",
+		"api_key": "ollama",
+		"api_type": "ollama"
+	}
+]

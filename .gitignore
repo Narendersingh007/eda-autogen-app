@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pkl
+.env
+outputs/
+node_modules/
+frontend/build/
+uploads/
+backend/uploads/
+*.csv
