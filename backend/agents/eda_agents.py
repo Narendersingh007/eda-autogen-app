@@ -10,23 +10,27 @@ from autogen import (
 def setup_groupchat_with_agents(df_preview_str: str):
     # Load Ollama config (local LLM)
     llm_config = {
-    "base_url": "http://localhost:11434/v1",
-    "api_key": "ollama",  
-    "model": "llama3",
-    "temperature": 0.2,
-    "timeout": 540,
-    "price": [0.0, 0.0]
+        "config_list": [{
+            "api_type": "ollama",
+            "base_url": "http://localhost:11434/v1",
+            "api_key": "ollama",
+            "model": "mistral",
+            "temperature": 0.2,
+            "num_predict": 2048,
+            "num_ctx": 4096,
+            "repeat_penalty": 1.1,
+            "seed": 42,
+            "top_k": 40,
+            "top_p": 0.9
+        }]
     }
-
 
     # Define the user (human) proxy
     user_proxy = UserProxyAgent(
         name="User",
         system_message="You are a human who wants an EDA analysis from AI agents.",
         human_input_mode="NEVER",
-        code_execution_config={
-        "use_docker": False
-        }
+        code_execution_config={"use_docker": False}
     )
 
     # Coder Agent (writes code)
@@ -52,9 +56,16 @@ Provide a score out of 10 for each and suggest improvements (no code).""",
         llm_config=llm_config,
     )
 
+    # Analyst Agent (optional: adds high-level summaries and insights)
+    analyst = AssistantAgent(
+        name="Analyst",
+        system_message="You summarize EDA findings, interpret visuals, and generate insights for business decision making.",
+        llm_config=llm_config,
+    )
+
     # Create group chat
     groupchat = GroupChat(
-        agents=[user_proxy, coder, critic],
+        agents=[user_proxy, coder, critic, analyst],
         messages=[],
         max_round=10
     )
