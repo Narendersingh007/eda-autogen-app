@@ -1,3 +1,5 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
 # 📊 EDA Autogen App
 
 **EDA Autogen App** is a full-stack, interactive tool for automatic Exploratory Data Analysis (EDA) powered by multi-agent AI. Upload any CSV file and receive a live, collaborative analysis from AI agents — complete with visualizations, summaries, and improvement suggestions.
@@ -64,7 +66,7 @@ pip install -r requirements.txt
 python -m backend.main
 ```
 
-Frontend (React + Vite)
+### ⚛️ Frontend (React + Vite)
 
 ```bash
 cd frontend
@@ -72,7 +74,7 @@ npm install
 npm run dev
 ```
 
- Ollama LLM Setup
+### 🤖 Ollama LLM Setup
 
 Install Ollama from https://ollama.com
 
@@ -114,3 +116,4 @@ For major changes, open an issue first to discuss what you would like to change.
  
 
  
+  is this fine 
