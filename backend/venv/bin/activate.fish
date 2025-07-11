@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/narendersingh/eda-autogen-app/backend/venv"
+set -gx VIRTUAL_ENV "/Users/narendersingh/clone-eda-autogen-app/eda-autogen-app/backend/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
